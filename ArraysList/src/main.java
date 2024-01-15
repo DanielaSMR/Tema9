@@ -21,11 +21,7 @@ public class main {
                 listaAr.add(s);
             }
         }
-        while(s != -99){
-            System.out.println("Dame numeros");
-            s = sc.nextInt();
-            listaAr.add(s);
-        }
+        while(s != -99);
 
         for(int n = 0; n < listaAr.size();n++){
             System.out.println(listaAr.get(n));
