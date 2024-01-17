@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Ejer2 {
@@ -36,10 +37,10 @@ public class Ejer2 {
                     eliminaNum();
                     break;
                 case 5:
-                    
+                    insertarNum();
                     break;
                 case 6:
-                    
+                    mostrarNum();
                     break;
                 case 7:
                     
@@ -99,7 +100,32 @@ public class Ejer2 {
         metodos.remove(metodos.indexOf(eliminar));
     }
 
+    public static void insertarNum(){
+        Scanner sc5 = new Scanner(System.in);
+        System.out.println("Escribe la posicion donde quieres añadirlo");
+        int posicion = sc5.nextInt();
+        System.out.println("Dime el numero que quieres añadir");
+        int insertar = sc5.nextInt();
+        if(posicion == metodos.size()+1){
+            metodos.add(insertar);
+        }else if(posicion > metodos.size()){
+            System.out.println("No es posible");
+        }
+        else{
+            metodos.set(posicion, insertar);
+        }
 
+    }
+
+    public static void mostrarNum(){
+        for(int n = 0; n < metodos.size();n++){
+            System.out.println("pos: [" + n + "]" + metodos.get(n) + "\n");
+        }
+    }
+
+    public static void ordenarAscNum(){
+        Collections.sort(metodos);
+    }
 
     
 }
