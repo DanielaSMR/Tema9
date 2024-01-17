@@ -7,7 +7,9 @@ public class main {
         
         ArrayList<Integer> lista = new ArrayList<Integer>();
         lista = leerValores(lista);
-        calcularSuma(lista);
+        int suma = calcularSuma(lista);
+        int media = suma/lista.size();
+        mostrarResultados(lista, suma, media);
     }   
 
     public static ArrayList<Integer> leerValores(ArrayList<Integer> listaAr){
@@ -15,14 +17,16 @@ public class main {
         int s = 0;
 
         do{
+            System.out.println("Añade un numeros, si quieres terminar escribe -99");
             s = sc.nextInt();
 
-            if(s != 99){
+            if(s != -99){
                 listaAr.add(s);
             }
         }
         while(s != -99);
-
+        
+        System.out.println("los numeros son: ");
         for(int n = 0; n < listaAr.size();n++){
             System.out.println(listaAr.get(n));
         }
@@ -36,5 +40,22 @@ public class main {
             suma = suma + it.next();
         }
         return suma;
+    }
+
+    public static String mostrarResultados(ArrayList<Integer> listaAr,int suma,int media){
+        int contador = 0;
+        for(int n = 0; n < listaAr.size();n++){
+            if(listaAr.get(n) > media){
+                contador++;
+            }
+        }
+        System.out.println("Los numeros son: ");
+        for(int n = 0; n < listaAr.size();n++){
+            System.out.println(listaAr.get(n));
+        }
+        System.out.println("La suma total es: " + suma
+                            + "\nLa media total es: " + media
+                            + "\nLa cantidad de numeros superior a la media son: " + contador);
+        return " ";
     }
 }
