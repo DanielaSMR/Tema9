@@ -73,8 +73,10 @@ public class Ejer2 {
         for(int n = 0; n < metodos.size();n++){
             if(metodos.get(n) == buscar){
                 System.out.println("Si esta!:D \n Se encuantra en la posicion: " + n);
+                break;
             }
         }
+        System.out.println("No esta :'((");
     }
 
     public static void modificarNum(){
