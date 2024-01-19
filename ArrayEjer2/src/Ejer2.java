@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Ejer2 {
@@ -9,7 +11,7 @@ public class Ejer2 {
         Scanner sc = new Scanner(System.in);
         int opciones = 0;
         do{
-            System.out.println("ACCIONES\n" + 
+            System.out.println("\nACCIONES\n" + 
                     "[1] Agregar numero\n" + 
                     "[2] Buscar numero\n" + 
                     "[3] Modificar numero\n" + 
@@ -19,7 +21,7 @@ public class Ejer2 {
                     "[7] Orden ascendente\n" + 
                     "[8] Orden descendente\n" + 
                     "[9] Salir\n" + 
-                    "Introduzca acción (1-9):");
+                    "Introduzca acción (1-9):\n");
 
             opciones = sc.nextInt();
 
@@ -43,13 +45,13 @@ public class Ejer2 {
                     mostrarNum();
                     break;
                 case 7:
-                    
+                    ordenarAscNum();
                     break;
                 case 8:
-                    
+                    ordenarDescNum();
                     break;
                 case 9:
-                
+                    System.out.println("Adios...");
                     break;
             }
 
@@ -71,13 +73,18 @@ public class Ejer2 {
         Scanner sc2 = new Scanner(System.in);
         System.out.println("Escribe el numero que buscas");
         int buscar = sc2.nextInt();
+        int contador = 0;
         for(int n = 0; n < metodos.size();n++){
             if(metodos.get(n) == buscar){
-                System.out.println("Si esta!:D \n Se encuantra en la posicion: " + n);
+                System.out.println("Si esta!:D \n Se encuentra en la posicion: " + n);
                 break;
-            }
+            }else
+                contador++;
+            
+            if(contador == metodos.size())
+                System.out.println("No esta :,(");
+            
         }
-        System.out.println("No esta :'((");
     }
 
     public static void modificarNum(){
@@ -102,8 +109,9 @@ public class Ejer2 {
 
     public static void insertarNum(){
         Scanner sc5 = new Scanner(System.in);
-        System.out.println("Escribe la posicion donde quieres añadirlo");
+        System.out.println("Escribe la posicion donde quieres añadirlo \n recuerda que empieza por la posicion 0");
         int posicion = sc5.nextInt();
+        metodos.remove(posicion);//remove busca la posicion no el numero
         System.out.println("Dime el numero que quieres añadir");
         int insertar = sc5.nextInt();
         if(posicion == metodos.size()+1){
@@ -119,13 +127,23 @@ public class Ejer2 {
 
     public static void mostrarNum(){
         for(int n = 0; n < metodos.size();n++){
-            System.out.println("pos: [" + n + "]" + metodos.get(n) + "\n");
+            System.out.println("posicion [" + n + "] = " + metodos.get(n) + "\n");
         }
     }
 
     public static void ordenarAscNum(){
         Collections.sort(metodos);
+        for(int n = 0; n < metodos.size();n++){
+            System.out.println("posicion [" + n + "] = " + metodos.get(n) + "\n");
+        }
     }
 
+    public static void ordenarDescNum(){
+        Comparator<Integer> comparador = Collections.reverseOrder();
+        Collections.sort(metodos, comparador);
+        for(int n = 0; n < metodos.size();n++){
+            System.out.println("posicion [" + n + "] = " + metodos.get(n) + "\n");
+        }
+    }
     
 }
