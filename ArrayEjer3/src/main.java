@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class main {
@@ -17,16 +18,15 @@ public class main {
             alumnos.add(new Alumno(nombre, nota));
         }
 
-        /*System.out.println("Esto son los alumnos ordenador por nombre");
-        Collections.sort(alumnos, new Comparator<Alumno>(){
-            public int compare(Alumno a1, Alumno a2){
-                return a1.getNombre().compareTo(a2.getNombre());
-            }
-        });
+        System.out.println("Esto son los alumnos ordenador por nombre");
+        /*@Override
+        Collections.sort(alumnos){
+            
+        }
 
-        System.out.println(alumnos);
+        System.out.println();
 
-        Collections.sort(alumnos, new Comparator<Alumno>(){
+        /*Collections.sort(alumnos, new Comparator<Alumno>(){
             public Alumno compare(Alumno a1, Alumno a2){
                 if( a1.getNota() > a2.getNota()){
                     return a1;

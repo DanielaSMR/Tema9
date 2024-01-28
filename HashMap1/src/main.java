@@ -2,6 +2,7 @@ import java.util.*;
 
 public class main {
     static HashMap <String, Integer> agenda = new HashMap<String, Integer>();
+    static int contador = 0;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opciones = 0;
@@ -36,21 +37,22 @@ public class main {
                     modificarNum();
                     break;
                 case 5:
-    
+                    mostrarName();
                     break;
                 case 6:
                     eliminaNum();
-                    mostrarNum();
                     break;
                 case 7:
-                    ordenarAscNum();
+                    MostrarAgenda();
                     break;
                 case 8:
-                    ordenarDescNum();
+                    MostrarAgenda();
                     break;
                 case 9:
+                    ordenarName();
                     break;
                 case 10:
+                    ordenarNum();
                     break;
                 case 11:
                     System.out.println("Adios...");
@@ -70,16 +72,20 @@ public class main {
         String nom = sc1.nextLine();
         System.out.println("Añade el numero");
         Integer num = sc1.nextInt();
+        contador++;
+        if(nom.equals("")){
+            nom += "?" + contador;
+        }
         agenda.put(nom,num);
     }
 
     public static void consultarNum(){
         
         for(String i : agenda.keySet()){
-            if(i.equals("")){
+            if(i.contains("?")){
 
             }else{
-                System.out.println("Nombre: " + i + "Numero: " + agenda.get(i));
+                System.out.println("Nombre: " + i + " Numero: " + agenda.get(i));
             }
         }
     }
@@ -91,7 +97,7 @@ public class main {
         String nom = sc2.nextLine();
         for(String i : agenda.keySet()){
             if(i.equals(nom)){
-                System.out.println("El numero de " + i + "es " + agenda.get(i));
+                System.out.println("El numero de " + i + " es " + agenda.get(i));
             }
         }
 
@@ -110,5 +116,40 @@ public class main {
 
     }
 
+    public static void mostrarName(){
+        Scanner sc4 = new Scanner(System.in);
+        System.out.println("Escribe el numero de la persona que buscas");
+        int num = sc4.nextInt();
+        for(String i : agenda.keySet()){
+            if(agenda.get(i) == num){
+                System.out.println("El numero " + agenda.get(i) + " es de " + i);
+            }
+        }
+    }
+
+    public static void eliminaNum(){
+        Scanner sc3 = new Scanner(System.in);
+        System.out.println("Escribe el nombre de quien quieres elimar de la agenda");
+        String nom = sc3.nextLine();
+        agenda.remove(nom);
+
+    }
+
+    public static void MostrarAgenda(){
+        
+        for(String i : agenda.keySet()){
+            System.out.println("Nombre: " + i + " Numero: " + agenda.get(i));
+        }
+    }
+
+    public static void ordenarName(){
+
+
+    }
+
+    public static void ordenarNum(){
+    
+        
+    }
 
 }
