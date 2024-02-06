@@ -6,7 +6,7 @@ abstract class Electrodomestico {
     protected String consumoEnergetico;
     private int peso;
     int numTotal;
-    static HashMap<String, Integer> datos = new HashMap<>("A",100,"A",80,"A",60,"D",50,"E",30,"F",10);
+    static HashMap<String, Integer> calificacion = new HashMap<>("A",100,"B",80,"C",60,"D",50,"E",30,"F",10);
 
     public Electrodomestico(){
         this.modelo = "Desconocido";
