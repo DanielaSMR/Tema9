@@ -61,7 +61,7 @@ public class main {
 
 
         }
-        while (opciones != 9);
+        while (opciones != 11);
 
 
     }
@@ -76,18 +76,22 @@ public class main {
         if(nom.equals("")){
             nom += "?" + contador;
         }
-        agenda.put(nom,num);
+        if(agenda.containsValue(nom)){
+            System.out.println("Nombre existente");
+        }else if (agenda.containsKey(num)){
+            System.out.println("Numero existente");
+        }else
+            agenda.put(nom,num);
     }
 
     public static void consultarNum(){
         
         for(String i : agenda.keySet()){
-            if(i.contains("?")){
-
-            }else{
+            if(!i.contains("?")){
                 System.out.println("Nombre: " + i + " Numero: " + agenda.get(i));
             }
         }
+        System.out.println("Tienes" + agenda.size() + "amigos agregados");
     }
     
 
@@ -98,7 +102,8 @@ public class main {
         for(String i : agenda.keySet()){
             if(i.equals(nom)){
                 System.out.println("El numero de " + i + " es " + agenda.get(i));
-            }
+            }else
+                System.out.println("Amigo desconocido");
         }
 
     }
@@ -140,10 +145,17 @@ public class main {
         for(String i : agenda.keySet()){
             System.out.println("Nombre: " + i + " Numero: " + agenda.get(i));
         }
+
+        System.out.println("Tienes" + agenda.size() + "amigos");
     }
 
     public static void ordenarName(){
-
+        TreeMap<String, Integer> ordenada = new TreeMap<>(agenda);
+        int tlf;
+        for(String nom: ordenada.keySet()){
+            tlf = ordenada.get(nom);
+            System.out.println(nom + "\t" + tlf);
+        }
 
     }
 
