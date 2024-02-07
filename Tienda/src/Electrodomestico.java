@@ -6,7 +6,8 @@ abstract class Electrodomestico {
     protected String consumoEnergetico;
     private int peso;
     int numTotal;
-    static HashMap<String, Integer> calificacion = new HashMap<>("A",100,"B",80,"C",60,"D",50,"E",30,"F",10);
+    HashMap <String, Integer> calificacion = new HashMap<String, Integer>();
+    
 
     public Electrodomestico(){
         this.modelo = "Desconocido";
@@ -24,6 +25,45 @@ abstract class Electrodomestico {
         numTotal++;
     }
 
+    public void comprobarConsumo(String letra){
+        if(!letra.equals("A") || !letra.equals("B") || 
+        !letra.equals("C") || !letra.equals("D") || 
+        !letra.equals("E") || !letra.equals("F")){
+            letra = "F";
+        }
+        
+    }
+
+    public void rellenarLetras(){
+        calificacion.put("A", 100);
+        calificacion.put("B", 80);
+        calificacion.put("C", 60);
+        calificacion.put("D", 50);
+        calificacion.put("E", 30);
+        calificacion.put("F", 10);
+
+    }
+
+    public double incrementoPrecio(){
+        int suma = 0;
+        int energia = 0;
+        for(String i : calificacion.keySet()){
+            if (consumoEnergetico == i){
+                energia = calificacion.get(i);
+            }
+        }
+        if(peso <= 19){
+            suma = energia + 10;
+        }else if(peso >= 20 && peso <= 49){
+            suma = energia + 50;
+        }else if(peso >= 50 && peso <= 79){
+            suma = energia + 80;
+        }else if(peso >= 80){
+            suma = energia + 100;
+        }
+
+        return (double) suma;
+    }
 
     public String getModelo() {
         return modelo;
@@ -41,9 +81,9 @@ abstract class Electrodomestico {
         return consumoEnergetico;
     }
     public void setConsumoEnergetico(String consumoEnergetico) {
-        if(consumoEnergetico.equals('A') || consumoEnergetico.equals('B') || 
-        consumoEnergetico.equals('C') || consumoEnergetico.equals('D') || 
-        consumoEnergetico.equals('E') || consumoEnergetico.equals('F')){
+        if(consumoEnergetico.equals("A") || consumoEnergetico.equals("B") || 
+        consumoEnergetico.equals("C") || consumoEnergetico.equals("D") || 
+        consumoEnergetico.equals("E") || consumoEnergetico.equals("F")){
             this.consumoEnergetico = consumoEnergetico;
         }
     }
