@@ -27,7 +27,7 @@ public class ATienda {
                 case 2:
                     buscarLav();
                     break;
-                case 3:
+                /*case 3:
                     modificarLav();
                     break;
                 case 4:
@@ -38,7 +38,7 @@ public class ATienda {
                     break;
                 case 6:
                     mostrarLavs();
-                    break;
+                    break;*/
                 case 7:
                     System.out.println("Adios...");
                     break;
@@ -47,7 +47,7 @@ public class ATienda {
 
 
         }
-        while (opciones != 5);
+        while (opciones != 7);
 
     }
 
@@ -56,10 +56,12 @@ public class ATienda {
         int decidir = sc.nextInt();
         if(decidir == 1){
             System.out.println("Modelo");
+            sc.next();
             String modelo = sc.nextLine();
             System.out.println("PrecioBase");
             int precioBase = sc.nextInt();
             System.out.println("ConsumoEnergetico (Solo del A-F)");
+            sc.next();
             String consumo = sc.nextLine();
             System.out.println("Peso");
             int peso = sc.nextInt();
@@ -75,11 +77,13 @@ public class ATienda {
 
     public static void buscarLav(){
         System.out.println("Escribe el modelo que buscas");
+        sc.next();
         String buscar = sc.nextLine();
 
         for(int n = 0; n < lavs.size();n++){
-            if(lavs)
+            if(lavs.get(n).getModelo() == buscar){
             System.out.println(lavs.get(n));
+            }
         }
 
     }
