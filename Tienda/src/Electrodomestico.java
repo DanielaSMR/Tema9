@@ -65,6 +65,16 @@ abstract class Electrodomestico {
         return (double) suma;
     }
 
+    public String toString(){
+        String texto = "El modelo " + modelo + " El precio Base " + precioBase + 
+        " El consumo Energetico " + consumoEnergetico + 
+        " El peso " + peso + 
+        " El numero total de Electrodomesticos " + numTotal;
+
+        return texto;
+
+    }
+
     public String getModelo() {
         return modelo;
     }
