@@ -22,7 +22,6 @@ abstract class Electrodomestico {
         this.precioBase = precioBase;
         this.consumoEnergetico = consumoEnergetico;
         this.peso = peso;
-        Double incremento = incrementoPrecio() + precioBase;
         numTotal++;
     }
 
@@ -102,6 +101,14 @@ abstract class Electrodomestico {
     }
     public void setPeso(int peso) {
         this.peso = peso;
+    }
+
+    public int getNumTotal() {
+        return numTotal;
+    }
+
+    public void setNumTotal(int numTotal) {
+        this.numTotal = numTotal;
     }
 
     

@@ -36,9 +36,9 @@ public class ATienda {
                 case 5:
                     mostrar();
                     break;
-                /*case 6:
+                case 6:
                     mostrarLavs();
-                    break;*/
+                    break;
                 case 7:
                     System.out.println("Adios...");
                     break;
@@ -140,6 +140,15 @@ public class ATienda {
             System.out.println(lavs.get(n));
         }
 
+    }
+
+    public static void mostrarLavs(){
+
+        for(int n = 0; n < lavs.size();n++){
+            if(lavs.size() == lavs.size()-1){
+            System.out.println(Electrodomestico.getNumTotal());
+            }
+        }
     }
 
 }

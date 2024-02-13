@@ -29,7 +29,7 @@ public class Lavadora extends Electrodomestico {
 
     @Override
     public String toString() {
-        String texto = " La carga es: " + carga + "\n El precio Final es: " + precioFinal() + getPrecioBase();
+        String texto = " La carga es: " + carga + "\n El precio Final es: " + precioFinal();
         return super.toString() + texto;
     }
 
