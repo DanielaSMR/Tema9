@@ -22,6 +22,7 @@ abstract class Electrodomestico {
         this.precioBase = precioBase;
         this.consumoEnergetico = consumoEnergetico;
         this.peso = peso;
+        Double incremento = incrementoPrecio() + precioBase;
         numTotal++;
     }
 
@@ -66,10 +67,9 @@ abstract class Electrodomestico {
     }
 
     public String toString(){
-        String texto = "El modelo " + modelo + " El precio Base " + precioBase + 
-        " El consumo Energetico " + consumoEnergetico + 
-        " El peso " + peso + 
-        " El numero total de Electrodomesticos " + numTotal;
+        String texto = "El modelo " + modelo + "\n El precio Base " + precioBase 
+        + "\n Consumo Energetico: " + consumoEnergetico + "\n El peso es: " + peso 
+        + "\n El numero total de Electrodomesticos" + numTotal;
 
         return texto;
 
