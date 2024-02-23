@@ -14,9 +14,8 @@ public class ATienda {
                     "[3] Modificar el precio base de una lavadora determinada por el modelo y mostrarla\n" + 
                     "[4] Eliminar una lavadora determinada por el modelo\n" + 
                     "[5] Mostrar todas las lavadoras\n" +
-                    "[6] Mostrar numero de lavadoras\n" +
-                    "[7] Salir\n"+
-                    "Introduzca acción (1-7):\n");
+                    "[6] Salir\n"+
+                    "Introduzca acción (1-6):\n");
 
             opciones = sc.nextInt();
 
@@ -37,9 +36,6 @@ public class ATienda {
                     mostrar();
                     break;
                 case 6:
-                    mostrarLavs();
-                    break;
-                case 7:
                     System.out.println("Adios...");
                     break;
                    
@@ -142,13 +138,5 @@ public class ATienda {
 
     }
 
-    public static void mostrarLavs(){
-
-        for(int n = 0; n < lavs.size();n++){
-            if(lavs.size() == lavs.size()-1){
-            System.out.println(Electrodomestico.getNumTotal());
-            }
-        }
-    }
 
 }
