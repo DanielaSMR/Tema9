@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ATienda {
-    static ArrayList<Lavadora> lavs = new ArrayList<Lavadora>();
+    ArrayList<Lavadora> lavs = new ArrayList<Lavadora>();//hacer dinamico
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {

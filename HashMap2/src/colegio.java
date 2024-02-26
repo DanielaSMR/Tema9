@@ -12,7 +12,7 @@ public class colegio {
         Scanner sc = new Scanner(System.in);
 
         
-        alumno.put( ,nacionalidad);
+     
     }
 
 }
